@@ -1,0 +1,14 @@
+ti@chromebook:~$ docker run -it devopsdockeruh/simple-web-service:ubuntu
+... 
+Starting log output
+Wrote text to /usr/src/app/text.log
+
+#toisessa konsolissa:
+ti@chromebook:~$ docker exec -it sweet_moser bash
+
+root@2fd3a17bf262:/usr/src/app# ls   
+server  text.log
+
+root@2fd3a17bf262:/usr/src/app# tail text.log 
+2022-05-18 15:00:10 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'

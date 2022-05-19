@@ -1,0 +1,39 @@
+ti@chromebook:~$ docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+893add263623   nginx     "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   80/tcp    friendly_perlman
+
+ti@chromebook:~$ docker container stop friendly_perlman 
+friendly_perlman
+
+ti@chromebook:~$ docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+7b0f2e2dc8836b655c14fccc04e2e39e3fbffe84abd236db3bc99dc0f49f5bb3
+1ac968491ae6289eef23063146cd464436bd3e27f8a0dbd7c33b2d7cac5fb870
+893add2636233fe00a722de9c7ff0ff511dbaed3215dd3e346434c3c5bbf9fc2
+Total reclaimed space: 3.279kB
+
+ti@chromebook:~$ docker image ls
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+nginx        latest    de2543b9436b   15 hours ago   142MB
+
+ti@chromebook:~$ docker image rm nginx
+Untagged: nginx:latest
+Untagged: nginx@sha256:2d17cc4981bf1e22a87ef3b3dd20fbb72c3868738e3f307662eb40e2630d4320
+Deleted: sha256:de2543b9436b7b0e2f15919c0ad4eab06e421cecc730c9c20660c430d4e5bc47
+Deleted: sha256:e6643c9a23accf5c80d42301f00a7678bcd52883940e942d164441c967cdb5ad
+Deleted: sha256:844c495fab6e4bfd0ae042a10fa4588adc0ffd0339a2952f58b0bbdd942b8c1c
+Deleted: sha256:2deefd67059cad4693c3ec996e7db36c70b4b0aa77d6401ece78f7a6448a976c
+Deleted: sha256:d0811e76f3fb47605235346df6d4c1d6877506b2019f5827d0a883822796acd0
+Deleted: sha256:31352a5f24cf5e9926c20bebde4222154b95e1d060c2c57209c25537cd08021d
+Deleted: sha256:fd95118eade99a75b949f634a0994e0f0732ff18c2573fabdfc8d4f95b092f0e
+
+ti@chromebook:~$ docker image ls
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+ti@chromebook:~$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+ti@chromebook:~$ docker container ls
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES

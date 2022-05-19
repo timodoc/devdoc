@@ -1,0 +1,41 @@
+#Dockerfile
+FROM ubuntu:20.04
+RUN apt update
+RUN apt install curl -y
+CMD echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;
+
+#curler-imagen rakennus
+ti@chromebook:~$ docker build . -t curler
+Sending build context to Docker daemon  6.097GB
+Step 1/4 : FROM ubuntu:20.04
+ ---> 53df61775e88
+Step 2/4 : RUN apt update
+ ---> Using cache
+ ---> d2a07e475047
+Step 3/4 : RUN apt install curl -y
+ ---> Running in 68ccaad30fb
+..paljontekstiä..
+done.
+Removing intermediate container 68ccaad30fb1
+ ---> 2f97d9010e43
+Step 4/4 : CMD echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;
+ ---> Running in e2fd7ab10f85
+Removing intermediate container e2fd7ab10f85
+ ---> 3c5830f30a81
+Successfully built 3c5830f30a81
+Successfully tagged curler:latest
+
+
+#testataas uunituoretta imagea
+ti@chromebook:~$ docker run -it curler 
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="https://www.helsinki.fi/">here</a>.</p>
+</body></html>
+

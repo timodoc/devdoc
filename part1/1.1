@@ -1,0 +1,28 @@
+ti@chromebook:~$ docker image ls
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+nginx        latest    de2543b9436b   15 hours ago   142MB
+
+ti@chromebook:~$ docker run -d nginx
+893add2636233fe00a722de9c7ff0ff511dbaed3215dd3e346434c3c5bbf9fc2
+ti@chromebook:~$ docker run -d nginx
+1ac968491ae6289eef23063146cd464436bd3e27f8a0dbd7c33b2d7cac5fb870
+ti@chromebook:~$ docker run -d nginx
+7b0f2e2dc8836b655c14fccc04e2e39e3fbffe84abd236db3bc99dc0f49f5bb3
+
+ti@chromebook:~$ docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS     NAMES
+7b0f2e2dc883   nginx     "/docker-entrypoint.…"   9 seconds ago    Up 7 seconds    80/tcp    jolly_archimedes
+1ac968491ae6   nginx     "/docker-entrypoint.…"   10 seconds ago   Up 9 seconds    80/tcp    sleepy_bassi
+893add263623   nginx     "/docker-entrypoint.…"   12 seconds ago   Up 10 seconds   80/tcp    friendly_perlman
+
+ti@chromebook:~$ docker container stop sleepy_bassi 
+sleepy_bassi
+ti@chromebook:~$ docker container stop jolly_archimedes 
+jolly_archimedes
+
+ti@chromebook:~$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES
+7b0f2e2dc883   nginx     "/docker-entrypoint.…"   34 seconds ago   Exited (0) 5 seconds ago              jolly_archimedes
+1ac968491ae6   nginx     "/docker-entrypoint.…"   35 seconds ago   Exited (0) 16 seconds ago             sleepy_bassi
+893add263623   nginx     "/docker-entrypoint.…"   37 seconds ago   Up 35 seconds               80/tcp    friendly_perlman
+

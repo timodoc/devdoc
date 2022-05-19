@@ -1,0 +1,37 @@
+#FRONT
+
+#Dockerfile
+FROM node:16.15-alpine
+EXPOSE 5000
+WORKDIR /usr/src/app
+COPY . .
+ENV REACT_APP_BACKEND_URL=http://localhost:8000
+RUN npm install
+RUN npm run build
+RUN npm install -g serve
+ENTRYPOINT serve -s -l 5000 build
+
+
+#build
+ti@chromebook:~/dcr/material-applications/example-frontend$ docker build . -t frontend
+
+#suoritus
+ti@chromebook:~/dcr/material-applications/example-frontend$ docker run -d -p 5000:5000 frontend
+
+
+#BACK
+
+#Dockerfile
+FROM golang:1.17-alpine
+EXPOSE 8000
+WORKDIR /usr/src/app
+COPY . .
+RUN go build
+ENV REQUEST_ORIGIN=http://localhost:5000/
+ENTRYPOINT ./server
+
+ti@chromebook:~/dcr/material-applications/example-backend$ docker run -d -p 8000:8080 backend
+
+
+
+#selaimella osoitteeseen localhost:5000 ja 1.14 nappi näyttää "Success! Great job!"

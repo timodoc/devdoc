@@ -1,0 +1,9 @@
+ti@chromebook:~$ touch log.txt
+
+ti@chromebook:~$ docker container run -dv "$(pwd)/log.txt:/usr/src/app/text.log" devopsdockeruh/simple-web-service
+402cb69d9e9779650213f05257ba1eb5ba9635b639a4ea356cf85b5563004fc5
+
+ti@chromebook:~$ cat log.txt 
+2022-05-18 18:02:19 +0000 UTC
+2022-05-18 18:02:21 +0000 UTC
+2022-05-18 18:02:23 +0000 UTC

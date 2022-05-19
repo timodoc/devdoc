@@ -1,0 +1,11 @@
+#laitoin aluksi yhtä projektia mutta uppausta olis ollu gigatavun verran :D Niinpä minimaalinen alpine linux sai riittää tähän tehtävään
+
+ti@chromebook:~$ docker tag alpine:3.13 tkt20/testi:juu
+
+i@chromebook:~$ docker push tkt20/testi:juu
+The push refers to repository [docker.io/tkt20/testi]
+64242626f2eb: Mounted from library/alpine 
+juu: digest: sha256:c8a4f6a22f268b882c43c896a04668f03024f7ef761eb70cccd0b88e69d2c346 size: 528
+
+#älkää vain kukaan ladatko
+docker pull tkt20/testi:juu
